@@ -15,6 +15,38 @@
 
 ---
 
+## 28 October: three isolated candidates ready for official evaluation
+
+[`src/prepare_interventions.py`](src/prepare_interventions.py) now generates the
+control and three prespecified candidates directly from the permitted cached
+features and strata. Each CSV has **9,379 unique tract IDs**, finite scores in
+[0,1], and a recorded SHA-256. The regenerated E001 control is byte-identical
+to the existing submission file.
+
+| Candidate | Single change from E001 | Tracts whose prediction changes | Status |
+|---|---|---:|---|
+| E003 | Building base gap0.02→0.05 | 9,377 | Prepared; official RMSE unknown |
+| E004 | Road tertiary-class leakage0.15→0.30 | 8,830 | Prepared; official RMSE unknown |
+| E005 | Building base gap0.02→0 | 9,377 | Prepared; official RMSE unknown |
+
+These test uncertainty in the Overture-only expectations; **they are not claimed
+improvements**. No organiser target was reconstructed. An additional diagnostic
+found zero tracts with no Overture buildings but positive ACS housing, so its
+no-change candidate is discarded rather than spending a submission on an
+identical CSV. ACS is not substituted for the building-count denominator.
+
+```sh
+python src/prepare_interventions.py --data data
+```
+
+[Candidate files and input hashes](submissions/interventions/manifest.json)
+are committed with the generator. There are no public target labels, so only
+an accepted official submission can assess RMSE. Check E001 first, preserve
+all scores and compare each isolated change against it; do not upload duplicates.
+The current public rules allow10 submissions/day and300 total. Login and
+acceptance of the challenge rules are still required; no receipt or score is
+invented for these prepared files.
+
 ## 1. Highlights
 
 - **Clean by construction.** The organiser target is defined against reference layers that were later withdrawn. Our pipeline never reads them, and we deliberately discarded an earlier baseline that had been built on them (decision E000 in the log). Every number on this page comes from data that a judge can download today.
