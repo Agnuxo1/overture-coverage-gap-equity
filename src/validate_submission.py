@@ -19,13 +19,16 @@ def validate(submission, sample):
     bounded=bool(finite and ((scores>=0)&(scores<=1)).all())
     duplicates=int(sub.GEOID.duplicated().sum())
     ids_valid=bool(sub.GEOID.notna().all() and sub.GEOID.str.fullmatch(r'\d{11}').all())
-    ok=(not missing and not extra and not duplicates and ids_valid and bounded
-        and 'coverage_gap_score' in columns and not template.GEOID.duplicated().any())
+    template_valid=bool(len(template)>0 and template.GEOID.notna().all()
+                        and template.GEOID.str.fullmatch(r'\d{11}').all()
+                        and not template.GEOID.duplicated().any())
+    ok=(template_valid and not missing and not extra and not duplicates and ids_valid and bounded
+        and 'coverage_gap_score' in columns)
     return {'passed':bool(ok),'submission_rows':len(sub),'sample_rows':len(template),
             'missing_count':len(missing),'missing_first5':missing[:5],
             'extra_count':len(extra),'extra_first5':extra[:5],
             'duplicate_ids':duplicates,'id_format_valid':ids_valid,
-            'scores_finite':finite,'scores_in_range':bounded,
+            'scores_finite':finite,'scores_in_range':bounded,'template_valid':template_valid,
             'note':'A structural gate, not a performance score or platform receipt.'}
 
 
