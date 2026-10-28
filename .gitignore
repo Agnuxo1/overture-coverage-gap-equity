@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+data/
+logs/
+tmp/
+outputs/
+evidencias/
+PENDIENTE_FRAN.md
+*.pyc
