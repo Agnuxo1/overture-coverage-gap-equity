@@ -15,7 +15,25 @@
 
 ---
 
-## 28 October: three isolated candidates ready for official evaluation
+## Official upload status — 28 October
+
+The account is registered and joined. Upload **G4i5SJRG** (`E001_prior.csv`)
+was rejected during processing with missing IDs including `53001950100`,
+`53001950200`, `53001950301`, `53001950302` and `53001950303`.
+**There is no RMSE or accepted scored entry yet.** A first-submission badge
+does not establish successful scoring.
+
+The regional package contains9,379 IDs, matching the Info-page tract counts;
+the reported missing IDs are not in that union. The current Zindi template
+must be reconciled before any candidate upload. Support has been asked for
+the authoritative ID list. We do not fabricate predictions for unknown tracts
+or retry identical files. The new upload gate requires exact ID-set equality:
+
+```sh
+python src/validate_submission.py --submission submissions/E001_prior.csv --sample /path/to/current/SampleSubmission.csv
+```
+
+## Three isolated candidates prepared for evaluation
 
 [`src/prepare_interventions.py`](src/prepare_interventions.py) now generates the
 control and three prespecified candidates directly from the permitted cached
@@ -43,9 +61,9 @@ python src/prepare_interventions.py --data data
 are committed with the generator. There are no public target labels, so only
 an accepted official submission can assess RMSE. Check E001 first, preserve
 all scores and compare each isolated change against it; do not upload duplicates.
-The current public rules allow10 submissions/day and300 total. Login and
-acceptance of the challenge rules are still required; no receipt or score is
-invented for these prepared files.
+The current public rules allow10 submissions/day and300 total; the submission
+page displays a200-total counter, so quota must be checked before upload.
+All three candidates remain unscored while the ID contract is unresolved.
 
 ## 1. Highlights
 
