@@ -1,0 +1,14 @@
+{
+ "road_named_min_km": 0.05,
+ "road_tertiary_leak": 0.15,
+ "road_floor": 0.0,
+ "bld_base": 0.02,
+ "bld_osm_only_penalty": 0.05,
+ "estab_per_hu": 0.08,
+ "estab_urban_boost": 0.5,
+ "fire_prob_km2": 60.0,
+ "fire_prob_pop": 9000.0,
+ "school_per_pop": 0.0004,
+ "shrink": 0.0,
+ "scale": 1.0
+}
