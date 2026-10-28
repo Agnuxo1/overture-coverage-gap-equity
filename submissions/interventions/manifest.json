@@ -1,0 +1,74 @@
+{
+  "stage": "prepared_not_submitted_or_scored",
+  "diagnostic_missing_buildings_with_acs_housing": 0,
+  "discarded_E002": "No affected tract; do not upload a duplicate control. ACS is not used as a replacement building-count denominator.",
+  "prepared_utc": "2026-10-28T09:43:47.930623+00:00",
+  "data_sources": "Only current permitted Overture/ACS/strata caches; no withdrawn reference layers",
+  "input_hashes": {
+    "features/eastern-ok.parquet": "0182b17cede6d85e58b3c07ec2588efe61df51692c092d066534d291fe77dfc3",
+    "strata/eastern-ok.parquet": "dcd406abebfacbd027eaa1c125430bdbfce86736475a1d582e0a0ab314737760",
+    "features/maricopa-az.parquet": "46a819595dcdb7c29a975ac91f3016babdd36bc9485ede21c54e9e722e6427ba",
+    "strata/maricopa-az.parquet": "e447a7bea4367a71e108527a7d2dad9d9cc666ff7ecc9c81b29d8fd86c591e41",
+    "features/northern-ca.parquet": "bf854b9389ac7b446648348463940a326cec76b69589ff9f72d761fd96cee84f",
+    "strata/northern-ca.parquet": "08ec898c6a7b26fc00c58e28bc4fc69b824de628d77d4caec4ba2c2f2561a5e0",
+    "features/south-central-tx.parquet": "a35feeed267d42d1555812628f2cb31329209072129957a1454a932cfe2868b1",
+    "strata/south-central-tx.parquet": "e2336250d5b2b4c8e51468600c196ba8a36ddd5fcfe7487bf955cf7e57c65b1e"
+  },
+  "candidates": [
+    {
+      "candidate": "E001_control",
+      "isolated_change": {},
+      "rows": 9379,
+      "sha256": "9c34cbb7c56ab60ae174747ebc34a96275de2e9aa3c4bf2f920706189ac6591f",
+      "changed_tracts": 0,
+      "mean_score_delta": 0.0,
+      "min_score_delta": 0.0,
+      "max_score_delta": 0.0,
+      "official_submission_id": null,
+      "official_rmse": null
+    },
+    {
+      "candidate": "E003_building_prior005",
+      "isolated_change": {
+        "bld_base": 0.05
+      },
+      "rows": 9379,
+      "sha256": "797e3653c83b3097142f13a78ff853fada9a2d3b54713bf9db4cada655f3a1ee",
+      "changed_tracts": 9377,
+      "mean_score_delta": 0.010090627998720542,
+      "min_score_delta": 0.0,
+      "max_score_delta": 0.030000000000000002,
+      "official_submission_id": null,
+      "official_rmse": null
+    },
+    {
+      "candidate": "E004_road_leak030",
+      "isolated_change": {
+        "road_tertiary_leak": 0.3
+      },
+      "rows": 9379,
+      "sha256": "36b9b21f09b16d1f76fa96bfc4bece32a6e7003fe7cbc6b55f314e62589ab217",
+      "changed_tracts": 8830,
+      "mean_score_delta": 0.02139844278410512,
+      "min_score_delta": 0.0,
+      "max_score_delta": 0.062300533492132285,
+      "official_submission_id": null,
+      "official_rmse": null
+    },
+    {
+      "candidate": "E005_building_prior000",
+      "isolated_change": {
+        "bld_base": 0.0
+      },
+      "rows": 9379,
+      "sha256": "10c79229fde649f3a8f42ea8feef7732a03b0cbbd8599d216c642c87d8306334",
+      "changed_tracts": 9377,
+      "mean_score_delta": -0.006727085332480367,
+      "min_score_delta": -0.020000000000000004,
+      "max_score_delta": 0.0,
+      "official_submission_id": null,
+      "official_rmse": null
+    }
+  ],
+  "selection_rule": "Compare accepted official RMSE against E001; preserve every result. No local accuracy claim without organiser labels. Check quotas and rules before each upload."
+}
