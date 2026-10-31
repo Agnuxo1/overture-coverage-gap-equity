@@ -40,12 +40,29 @@ def provenance_table(f, s, by):
 
 
 def tract_flags(f, s):
-    """Tracts with people but no Overture fire station and an ML-only building stock."""
-    d = f.assign(tribal=s.tribal, urban_rural=s.urban_rural)
-    d["osm_share"] = d.ov_bld_osm / d.ov_bld.clip(lower=1)
-    flag = (d.ov_fire == 0) & (d.osm_share < 0.05) & (d.pop_total > 1000) & (d.land_km2 > 50)
-    cols = ["GEOID", "region", "tribal", "urban_rural", "pop_total", "land_km2", "ov_bld", "osm_share",
-            "ov_places", "ov_fire", "ov_ems", "ov_named_km"]
+    """Flag populous, large tracts dominated by ML footprints with no mapped fire station.
+
+    This describes Overture's *observed* dataset, not real-world station absence.
+    ML provenance is tested directly; a low OSM share is NOT a reliable proxy
+    because Esri and other source families may account for the remaining rows.
+    """
+    d = f.assign(tribal=s.tribal, urban_rural=s.urban_rural).copy()
+    count = d.ov_bld.clip(lower=1)
+    d["osm_share"] = d.ov_bld_osm / count
+    d["ml_share"] = d.ov_bld_msft / count
+    d["esri_share"] = d.ov_bld_esri / count
+    flag = (
+        (d.ov_bld > 0)
+        & (d.ov_fire == 0)
+        & (d.ml_share >= 0.95)
+        & (d.pop_total > 1000)
+        & (d.land_km2 > 50)
+    )
+    cols = [
+        "GEOID", "region", "tribal", "urban_rural", "pop_total",
+        "land_km2", "ov_bld", "osm_share", "ml_share", "esri_share",
+        "ov_places", "ov_fire", "ov_ems", "ov_named_km",
+    ]
     return d.loc[flag, cols].sort_values("pop_total", ascending=False)
 
 
