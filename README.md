@@ -70,7 +70,7 @@ All three candidates remain unscored while the ID contract is unresolved.
 - **Clean by construction.** The organiser target is defined against reference layers that were later withdrawn. Our pipeline never reads them, and we deliberately discarded an earlier baseline that had been built on them (decision E000 in the log). Every number on this page comes from data that a judge can download today.
 - **Organiser rule, permitted inputs.** We keep the exact scoring grammar: three components, each a capped ratio, combined as the mean of the components that are *defined* for a tract. Each withdrawn denominator is replaced by an expectation built from Overture-internal structure, ACS housing and the strata spine.
 - **A bias the scorecard cannot see: provenance.** In Eastern Oklahoma, **82 % of Overture buildings in tribal tracts are machine-learned footprints, and only 14 % come from OpenStreetMap.** In non-tribal tracts of the same region the ML share is 35 %. ML footprints carry no names, addresses or building use, which matters when a dispatcher needs to find a specific structure.
-- **276 high-risk tracts, 955,000 residents.** These are tracts with more than 1,000 residents and more than 50 km² where Overture lists **no fire station** and **≥ 95 % of buildings are ML-only**. 72 of them are tribal tracts in Eastern Oklahoma (224,000 people).
+- **244 flagged tracts, 823,716 residents.** These have more than 1,000 residents, more than 50 km², **no fire-station POI recorded in Overture**, and **at least 95% of their Overture building records sourced from Microsoft ML footprints**. Of these, 67 are tribal tracts in Eastern Oklahoma (203,784 residents). Missing Overture station data does *not* establish absence of physical fire stations.
 
 ![regions](assets/regions_coverage_gap.gif)
 
@@ -131,7 +131,7 @@ The same gradient appears along the rural/urban axis. In rural Eastern Oklahoma,
 
 ![tribal bars](assets/tribal_strata_bars.gif)
 
-**Why it matters.** A count-based score treats an ML polygon and a fully attributed OSM building as equal, so these tracts can look *well covered*. Yet emergency dispatch and evacuation routing need addressable, named, typed structures. The 276 flagged tracts are listed with population, area and feature counts in [`results/discovery_flagged_tracts.csv`](results/discovery_flagged_tracts.csv), and stratum tables are in `results/discovery_provenance_by_*.csv`. Everything reproduces from the challenge package with `python src/discovery.py`.
+**Why it matters.** A count-based score treats an ML polygon and a fully attributed OSM building as equal, so these tracts can look *well covered*. Yet emergency dispatch and evacuation routing need addressable, named, typed structures. The 244 strictly flagged tracts are listed with population, area and the verified ML-source share in [`results/discovery_flagged_tracts.csv`](results/discovery_flagged_tracts.csv), and stratum tables are in `results/discovery_provenance_by_*.csv`. Everything reproduces from the challenge package with `python src/discovery.py`.
 
 ## 5. Reproduce
 
@@ -147,7 +147,7 @@ No credentials, paid APIs, AutoML or LLM calls are needed at run time.
 
 ## 6. Limitations
 
-As in any no-label setting, the component expectations are calibrated with a small number of whole-file leaderboard scores, so they reflect the public 30 % split. The Texas tribal stratum is a single tract and is not interpreted. Overture's `sources` field records the first contributing dataset only.
+As in any no-label setting, the component expectations are calibrated with a small number of whole-file leaderboard scores, so they reflect the public 30 % split. The Texas tribal stratum is a single tract and is not interpreted. Overture's `sources` field records the first contributing dataset only. The earlier low-OSM proxy flagged 276 tracts (955,406 residents), but 32 had less than 95% ML provenance; those 32 are excluded from the corrected strict ML definition. This source-provenance association does not by itself demonstrate failed emergency dispatch or a missing real-world fire station.
 
 ## 7. Credits and licence
 
