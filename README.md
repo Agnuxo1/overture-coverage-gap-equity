@@ -117,6 +117,8 @@ Results are recorded in [`experiments/experiments.csv`](experiments/experiments.
 
 ## 4. Bias discovery: provenance inequality in Overture buildings
 
+**Special-prize submission (audited):** [Best Bias Discovery + Best Documentation — complete reproducible methodology](docs/ZINDI_SPECIAL_PRIZES_2026.md).
+
 ![provenance](assets/building_provenance.gif)
 
 **Pattern.** The automated scorecard measures *how much* is mapped. It never asks *what kind* of record fills the map. Overture merges OpenStreetMap buildings (human-mapped, often with names, addresses and building use) with machine-learned footprints (geometry only). The mix is far from uniform:
