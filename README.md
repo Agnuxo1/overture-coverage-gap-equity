@@ -117,7 +117,7 @@ Results are recorded in [`experiments/experiments.csv`](experiments/experiments.
 
 ## 4. Bias discovery: provenance inequality in Overture buildings
 
-**Special-prize submission (audited):** [Best Bias Discovery + Best Documentation — complete reproducible methodology](docs/ZINDI_SPECIAL_PRIZES_2026.md).
+**Special-prize methodology (audited; separate form submission not yet verified):** [Best Bias Discovery + Best Documentation — complete reproducible methodology](docs/ZINDI_SPECIAL_PRIZES_2026.md).
 
 ![provenance](assets/building_provenance.gif)
 
