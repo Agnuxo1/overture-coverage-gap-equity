@@ -1,0 +1,582 @@
+{
+  "title": "Mapping coverage equity",
+  "subtitle": "Tract-level audit of Overture coverage",
+  "figures": [
+    {
+      "kind": "flow",
+      "id": "fig-01",
+      "basis": "Technical schematic",
+      "title": "Submission provenance",
+      "subtitle": "28 October   /   Exact sample contract   /   Later E001 prior   /   No verified result here",
+      "source": "Source: README.md · conceptual relations, no measured values",
+      "nodes": [
+        [
+          0.115,
+          0.52,
+          "Historical rejection"
+        ],
+        [
+          0.38,
+          0.52,
+          "Reconcile IDs"
+        ],
+        [
+          0.62,
+          0.52,
+          "Scored entry"
+        ],
+        [
+          0.885,
+          0.52,
+          "Private ranking"
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1,
+          ""
+        ],
+        [
+          1,
+          2,
+          ""
+        ],
+        [
+          2,
+          3,
+          ""
+        ]
+      ],
+      "alt": "Submission provenance. Historical rejection: 28 October; Reconcile IDs: Exact sample contract; Scored entry: Later E001 prior; Private ranking: No verified result here"
+    },
+    {
+      "kind": "flow",
+      "id": "fig-02",
+      "basis": "Technical schematic",
+      "title": "Three controlled hypotheses",
+      "subtitle": "Freeze baseline   /   Higher building prior   /   Road leakage change   /   Zero building prior",
+      "source": "Source: README.md · conceptual relations, no measured values",
+      "nodes": [
+        [
+          0.115,
+          0.52,
+          "E001 control"
+        ],
+        [
+          0.38,
+          0.52,
+          "E003"
+        ],
+        [
+          0.62,
+          0.52,
+          "E004"
+        ],
+        [
+          0.885,
+          0.52,
+          "E005"
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1,
+          ""
+        ],
+        [
+          1,
+          2,
+          ""
+        ],
+        [
+          2,
+          3,
+          ""
+        ]
+      ],
+      "alt": "Three controlled hypotheses. E001 control: Freeze baseline; E003: Higher building prior; E004: Road leakage change; E005: Zero building prior"
+    },
+    {
+      "kind": "flow",
+      "id": "fig-03",
+      "basis": "Technical schematic",
+      "title": "Coverage and provenance",
+      "subtitle": "Mapped hierarchy   /   Compare source mix   /   Presence in the map   /   Group by tract",
+      "source": "Source: README.md · conceptual relations, no measured values",
+      "nodes": [
+        [
+          0.115,
+          0.52,
+          "Roads"
+        ],
+        [
+          0.38,
+          0.52,
+          "Buildings"
+        ],
+        [
+          0.62,
+          0.52,
+          "Facilities"
+        ],
+        [
+          0.885,
+          0.52,
+          "Strata"
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1,
+          ""
+        ],
+        [
+          1,
+          2,
+          ""
+        ],
+        [
+          2,
+          3,
+          ""
+        ]
+      ],
+      "alt": "Coverage and provenance. Roads: Mapped hierarchy; Buildings: Compare source mix; Facilities: Presence in the map; Strata: Group by tract"
+    },
+    {
+      "kind": "flow",
+      "id": "fig-04",
+      "basis": "Technical schematic",
+      "title": "Build the permitted feature spine",
+      "subtitle": "Count and clip   /   Join on text GEOID   /   Exclude undefined   /   Mean over defined",
+      "source": "Source: README.md · conceptual relations, no measured values",
+      "nodes": [
+        [
+          0.115,
+          0.52,
+          "Overture layers"
+        ],
+        [
+          0.38,
+          0.52,
+          "ACS and strata"
+        ],
+        [
+          0.62,
+          0.52,
+          "Defined terms"
+        ],
+        [
+          0.885,
+          0.52,
+          "Composite"
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1,
+          ""
+        ],
+        [
+          1,
+          2,
+          ""
+        ],
+        [
+          2,
+          3,
+          ""
+        ]
+      ],
+      "alt": "Build the permitted feature spine. Overture layers: Count and clip; ACS and strata: Join on text GEOID; Defined terms: Exclude undefined; Composite: Mean over defined"
+    },
+    {
+      "kind": "flow",
+      "id": "fig-05",
+      "basis": "Technical schematic",
+      "title": "Aggregate on a common tract geometry",
+      "subtitle": "EPSG:5070 lengths   /   Keep text GEOID   /   Count by source tag   /   Use authorised layers",
+      "source": "Source: README.md · conceptual relations, no measured values",
+      "nodes": [
+        [
+          0.115,
+          0.52,
+          "Clip lines"
+        ],
+        [
+          0.38,
+          0.52,
+          "Assign points"
+        ],
+        [
+          0.62,
+          0.52,
+          "Aggregate"
+        ],
+        [
+          0.885,
+          0.52,
+          "Join strata"
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1,
+          ""
+        ],
+        [
+          1,
+          2,
+          ""
+        ],
+        [
+          2,
+          3,
+          ""
+        ]
+      ],
+      "alt": "Aggregate on a common tract geometry. Clip lines: EPSG:5070 lengths; Assign points: Keep text GEOID; Aggregate: Count by source tag; Join strata: Use authorised layers"
+    },
+    {
+      "kind": "flow",
+      "id": "fig-06",
+      "basis": "Technical schematic",
+      "title": "Defined components contribute",
+      "subtitle": "Approximate denominator   /   Use source mix   /   Distinguish facilities   /   Mean of defined terms",
+      "source": "Source: README.md · conceptual relations, no measured values",
+      "nodes": [
+        [
+          0.115,
+          0.52,
+          "Roads"
+        ],
+        [
+          0.38,
+          0.52,
+          "Buildings"
+        ],
+        [
+          0.62,
+          0.52,
+          "Places"
+        ],
+        [
+          0.885,
+          0.52,
+          "Composite"
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1,
+          ""
+        ],
+        [
+          1,
+          2,
+          ""
+        ],
+        [
+          2,
+          3,
+          ""
+        ]
+      ],
+      "alt": "Defined components contribute. Roads: Approximate denominator; Buildings: Use source mix; Places: Distinguish facilities; Composite: Mean of defined terms"
+    },
+    {
+      "kind": "flow",
+      "id": "fig-07",
+      "basis": "Technical schematic",
+      "title": "Test one change against a frozen control",
+      "subtitle": "Avoid subset probing   /   Record the hash   /   Exact template match   /   Hidden labels",
+      "source": "Source: README.md · conceptual relations, no measured values",
+      "nodes": [
+        [
+          0.115,
+          0.52,
+          "State hypothesis"
+        ],
+        [
+          0.38,
+          0.52,
+          "Freeze control"
+        ],
+        [
+          0.62,
+          0.52,
+          "Validate IDs"
+        ],
+        [
+          0.885,
+          0.52,
+          "Read official score"
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1,
+          ""
+        ],
+        [
+          1,
+          2,
+          ""
+        ],
+        [
+          2,
+          3,
+          ""
+        ]
+      ],
+      "alt": "Test one change against a frozen control. State hypothesis: Avoid subset probing; Freeze control: Record the hash; Validate IDs: Exact template match; Read official score: Hidden labels"
+    },
+    {
+      "kind": "flow",
+      "id": "fig-08",
+      "basis": "Technical schematic",
+      "title": "Separate result types",
+      "subtitle": "Hash the output   /   Score against hidden labels   /   Describe source patterns",
+      "source": "Source: README.md · conceptual relations, no measured values",
+      "nodes": [
+        [
+          0.16,
+          0.52,
+          "Local determinism"
+        ],
+        [
+          0.5,
+          0.52,
+          "Official RMSE"
+        ],
+        [
+          0.84,
+          0.52,
+          "Bias analysis"
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1,
+          ""
+        ],
+        [
+          1,
+          2,
+          ""
+        ]
+      ],
+      "alt": "Separate result types. Local determinism: Hash the output; Official RMSE: Score against hidden labels; Bias analysis: Describe source patterns"
+    },
+    {
+      "kind": "bars",
+      "basis": "Recorded local evidence",
+      "title": "Building provenance in Eastern Oklahoma",
+      "subtitle": "Reported shares within tribal and non-tribal tracts; other sources are omitted",
+      "source": "Source: README, provenance inequality results",
+      "labels": [
+        "Tribal: ML",
+        "Non-tribal: ML",
+        "Tribal: OSM",
+        "Non-tribal: OSM"
+      ],
+      "values": [
+        82,
+        35.2,
+        14.3,
+        23.1
+      ],
+      "lim": [
+        0,
+        100
+      ],
+      "xlabel": "Share of building records (%)",
+      "alt": "Building provenance in Eastern Oklahoma: Tribal: ML: 82; Non-tribal: ML: 35.2; Tribal: OSM: 14.3; Non-tribal: OSM: 23.1",
+      "ticks": [
+        0,
+        20,
+        40,
+        60,
+        80,
+        100
+      ],
+      "formats": [
+        "82.0%",
+        "35.2%",
+        "14.3%",
+        "23.1%"
+      ],
+      "id": "fig-09"
+    },
+    {
+      "kind": "flow",
+      "id": "fig-10",
+      "basis": "Technical schematic",
+      "title": "Reproduce from permitted data",
+      "subtitle": "Current package   /   Preserve provenance   /   Match the exact sample   /   Log output",
+      "source": "Source: README.md · conceptual relations, no measured values",
+      "nodes": [
+        [
+          0.115,
+          0.52,
+          "Obtain inputs"
+        ],
+        [
+          0.38,
+          0.52,
+          "Extract features"
+        ],
+        [
+          0.62,
+          0.52,
+          "Validate IDs"
+        ],
+        [
+          0.885,
+          0.52,
+          "Record hashes"
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1,
+          ""
+        ],
+        [
+          1,
+          2,
+          ""
+        ],
+        [
+          2,
+          3,
+          ""
+        ]
+      ],
+      "alt": "Reproduce from permitted data. Obtain inputs: Current package; Extract features: Preserve provenance; Validate IDs: Match the exact sample; Record hashes: Log output"
+    },
+    {
+      "kind": "flow",
+      "id": "fig-11",
+      "basis": "Technical schematic",
+      "title": "Bound the conclusions",
+      "subtitle": "Selection bias is possible   /   First source only   /   Absence on map is not physical absence",
+      "source": "Source: README.md · conceptual relations, no measured values",
+      "nodes": [
+        [
+          0.16,
+          0.52,
+          "Public split"
+        ],
+        [
+          0.5,
+          0.52,
+          "Source metadata"
+        ],
+        [
+          0.84,
+          0.52,
+          "Missing records"
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1,
+          ""
+        ],
+        [
+          1,
+          2,
+          ""
+        ]
+      ],
+      "alt": "Bound the conclusions. Public split: Selection bias is possible; Source metadata: First source only; Missing records: Absence on map is not physical absence"
+    },
+    {
+      "kind": "flow",
+      "id": "fig-12",
+      "basis": "Technical schematic",
+      "title": "Reuse and citation",
+      "subtitle": "Preserve MIT notice   /   Keep separate terms   /   Use CITATION.cff",
+      "source": "Source: README.md · conceptual relations, no measured values",
+      "nodes": [
+        [
+          0.16,
+          0.52,
+          "Original code"
+        ],
+        [
+          0.5,
+          0.52,
+          "Upstream data"
+        ],
+        [
+          0.84,
+          0.52,
+          "Cite the work"
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1,
+          ""
+        ],
+        [
+          1,
+          2,
+          ""
+        ]
+      ],
+      "alt": "Reuse and citation. Original code: Preserve MIT notice; Upstream data: Keep separate terms; Cite the work: Use CITATION.cff"
+    },
+    {
+      "kind": "flow",
+      "id": "fig-13",
+      "basis": "Technical schematic",
+      "title": "How the references inform follow-up",
+      "subtitle": "Resolve DOI or arXiv ID   /   Predefine comparisons   /   Separate hypotheses and results",
+      "source": "Source: README.md · conceptual relations, no measured values",
+      "nodes": [
+        [
+          0.16,
+          0.52,
+          "Primary sources"
+        ],
+        [
+          0.5,
+          0.52,
+          "Study design"
+        ],
+        [
+          0.84,
+          0.52,
+          "Evidence to report"
+        ]
+      ],
+      "edges": [
+        [
+          0,
+          1,
+          ""
+        ],
+        [
+          1,
+          2,
+          ""
+        ]
+      ],
+      "alt": "How the references inform follow-up. Primary sources: Resolve DOI or arXiv ID; Study design: Predefine comparisons; Evidence to report: Separate hypotheses and results"
+    }
+  ]
+}
