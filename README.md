@@ -1,5 +1,10 @@
 # Overture Coverage-Gap Equity: Who Is Missing from the Map?
 
+![Overture Coverage-Gap Equity: Who Is Missing from the Map?: Tract-level audit of Overture coverage. Illustrative cover, not data.](docs/science-figures/header.gif)
+
+**Project citation:** [Francisco Angulo de Lafuente](https://orcid.org/0009-0001-1634-7063) · [CITATION.cff](CITATION.cff) · [Software metadata](codemeta.json).
+
+
 **A rule-compliant, fully reproducible estimator of Overture Maps coverage gaps across 9,379 U.S. Census tracts, plus a bias discovery on *where Overture's buildings come from*. Built for the [Zindi × Humane Intelligence Bias Bounty Mapping Equity Challenge](https://zindi.world/competitions/bias-bounty-mapping-equity-challenge).**
 
 ![pipeline](assets/pipeline.gif)
@@ -17,10 +22,14 @@
 
 ## Official upload status — 28 October
 
+![Submission provenance: Historical rejection — 28 October; Reconcile IDs — Exact sample contract; Scored entry — Later E001 prior; Private ranking — No verified result here](docs/science-figures/01.gif)
+
+*Figure 1. Submission provenance.*
+
 The account is registered and joined. Upload **G4i5SJRG** (`E001_prior.csv`)
 was rejected during processing with missing IDs including `53001950100`,
 `53001950200`, `53001950301`, `53001950302` and `53001950303`.
-**There is no RMSE or accepted scored entry yet.** A first-submission badge
+**At that point there was no RMSE or accepted scored entry.** A first-submission badge
 does not establish successful scoring.
 
 The regional package contains9,379 IDs, matching the Info-page tract counts;
@@ -34,6 +43,10 @@ python src/validate_submission.py --submission submissions/E001_prior.csv --samp
 ```
 
 ## Three isolated candidates prepared for evaluation
+
+![Three controlled hypotheses: E001 control — Freeze baseline; E003 — Higher building prior; E004 — Road leakage change; E005 — Zero building prior](docs/science-figures/02.gif)
+
+*Figure 2. Three controlled hypotheses.*
 
 [`src/prepare_interventions.py`](src/prepare_interventions.py) now generates the
 control and three prespecified candidates directly from the permitted cached
@@ -63,9 +76,13 @@ an accepted official submission can assess RMSE. Check E001 first, preserve
 all scores and compare each isolated change against it; do not upload duplicates.
 The current public rules allow10 submissions/day and300 total; the submission
 page displays a200-total counter, so quota must be checked before upload.
-All three candidates remain unscored while the ID contract is unresolved.
+The three interventions were unscored at this checkpoint; the later recorded score below concerns the E001 entry.
 
 ## 1. Highlights
+
+![Coverage and provenance: Roads — Mapped hierarchy; Buildings — Compare source mix; Facilities — Presence in the map; Strata — Group by tract](docs/science-figures/03.gif)
+
+*Figure 3. Coverage and provenance.*
 
 - **Clean by construction.** The organiser target is defined against reference layers that were later withdrawn. Our pipeline never reads them, and we deliberately discarded an earlier baseline that had been built on them (decision E000 in the log). Every number on this page comes from data that a judge can download today.
 - **Organiser rule, permitted inputs.** We keep the exact scoring grammar: three components, each a capped ratio, combined as the mean of the components that are *defined* for a tract. Each withdrawn denominator is replaced by an expectation built from Overture-internal structure, ACS housing and the strata spine.
@@ -76,7 +93,15 @@ All three candidates remain unscored while the ID contract is unresolved.
 
 ## 2. Method
 
+![Build the permitted feature spine: Overture layers — Count and clip; ACS and strata — Join on text GEOID; Defined terms — Exclude undefined; Composite — Mean over defined](docs/science-figures/04.gif)
+
+*Figure 4. Build the permitted feature spine.*
+
 ### 2.1 Features per tract (only permitted layers): [`src/features.py`](src/features.py)
+
+![Aggregate on a common tract geometry: Clip lines — EPSG:5070 lengths; Assign points — Keep text GEOID; Aggregate — Count by source tag; Join strata — Use authorised layers](docs/science-figures/05.gif)
+
+*Figure 5. Aggregate on a common tract geometry.*
 
 | Layer | Feature | How |
 |---|---|---|
@@ -90,6 +115,10 @@ All three candidates remain unscored while the ID contract is unresolved.
 The lon/lat axis-order trap the organisers warn about is avoided: coordinates are read as `OGC:CRS84` and reprojected with GeoPandas.
 
 ### 2.2 Score model: [`src/model.py`](src/model.py)
+
+![Defined components contribute: Roads — Approximate denominator; Buildings — Use source mix; Places — Distinguish facilities; Composite — Mean of defined terms](docs/science-figures/06.gif)
+
+*Figure 6. Defined components contribute.*
 
 | Component | Organiser definition | Permitted expectation used here |
 |---|---|---|
@@ -105,6 +134,10 @@ Edge cases follow the organiser convention: an undefined component is written as
 
 ### 2.3 Validation protocol
 
+![Test one change against a frozen control: State hypothesis — Avoid subset probing; Freeze control — Record the hash; Validate IDs — Exact template match; Read official score — Hidden labels](docs/science-figures/07.gif)
+
+*Figure 7. Test one change against a frozen control.*
+
 The challenge provides **no labels**. Any offline validation against a reconstructed target would require the withdrawn layers, so it is ruled out. The only legitimate validator is the official public leaderboard (≈ 30 % of tracts). We therefore run it as a controlled experiment series:
 
 *hypothesis → one change against the best previous file (the control) → one whole-file submission → accept or reject*.
@@ -113,9 +146,19 @@ Global parameters only: no per-tract or per-subset probing. Every run, negative 
 
 ## 3. Results
 
+![Separate result types: Local determinism — Hash the output; Official RMSE — Score against hidden labels; Bias analysis — Describe source patterns](docs/science-figures/08.gif)
+
+*Figure 8. Separate result types.*
+
+**Later evidence (4 November inventory):** the competition records a scored entry, [submission cS6CSwaD](https://zindi.world/competitions/bias-bounty-mapping-equity-challenge/submissions#submissioncS6CSwaD), with public RMSE **0.137403726**. The rejected October upload above was a separate event. This does not establish a private score, final rank or a special-prize outcome.
+
 Results are recorded in [`experiments/experiments.csv`](experiments/experiments.csv) as they come back from the leaderboard. The selected final submissions are marked there.
 
 ## 4. Bias discovery: provenance inequality in Overture buildings
+
+![Separate coverage from provenance: Source tags — OSM, ML and other; Geographic strata — Tribal and rural groups; Compare shares — Descriptive comparison; Interpret carefully — No proof of absence](docs/science-figures/09.gif)
+
+*Figure 9. Separate coverage from provenance.*
 
 **Special-prize methodology (audited; separate form submission not yet verified):** [Best Bias Discovery + Best Documentation — complete reproducible methodology](docs/ZINDI_SPECIAL_PRIZES_2026.md).
 
@@ -137,6 +180,10 @@ The same gradient appears along the rural/urban axis. In rural Eastern Oklahoma,
 
 ## 5. Reproduce
 
+![Reproduce from permitted data: Obtain inputs — Current package; Extract features — Preserve provenance; Validate IDs — Match the exact sample; Record hashes — Log output](docs/science-figures/10.gif)
+
+*Figure 10. Reproduce from permitted data.*
+
 ```bash
 python -m venv .venv && .venv/bin/pip install -r requirements.txt   # Windows: .venv\Scripts\pip
 python src/features.py eastern-ok maricopa-az northern-ca south-central-tx   # streams from the public bucket
@@ -149,11 +196,34 @@ No credentials, paid APIs, AutoML or LLM calls are needed at run time.
 
 ## 6. Limitations
 
+![Bound the conclusions: Public split — Selection bias is possible; Source metadata — First source only; Missing records — Absence on map is not physical absence](docs/science-figures/11.gif)
+
+*Figure 11. Bound the conclusions.*
+
 As in any no-label setting, the component expectations are calibrated with a small number of whole-file leaderboard scores, so they reflect the public 30 % split. The Texas tribal stratum is a single tract and is not interpreted. Overture's `sources` field records the first contributing dataset only. The earlier low-OSM proxy flagged 276 tracts (955,406 residents), but 32 had less than 95% ML provenance; those 32 are excluded from the corrected strict ML definition. This source-provenance association does not by itself demonstrate failed emergency dispatch or a missing real-world fire station.
 
 ## 7. Credits and licence
+
+![Reuse and citation: Original code — Preserve MIT notice; Upstream data — Keep separate terms; Cite the work — Use CITATION.cff](docs/science-figures/12.gif)
+
+*Figure 12. Reuse and citation.*
 
 - Data: [Humane Intelligence / Source Cooperative challenge package](https://source.coop/humane-intelligence/bias-bounty-mapping-equity-challenge) (CC-BY-SA 4.0), Overture Maps Foundation (ODbL / CDLA), U.S. Census Bureau ACS, CDC SVI, USDA RUCA and the other strata sources listed in the package README.
 - Challenge: Zindi, Humane Intelligence, Radiant Earth, Heising-Simons Foundation.
 - Tooling: DuckDB, GeoPandas, Shapely, pandas, Matplotlib, imageio.
 - Code: MIT © 2026 Francisco Angulo de Lafuente ([@Agnuxo1](https://github.com/Agnuxo1)).
+
+## Bibliography and research directions
+
+![How the references inform follow-up: Primary sources — Resolve DOI or arXiv ID; Study design — Predefine comparisons; Evidence to report — Separate hypotheses and results](docs/science-figures/13.gif)
+
+*Figure 13. How the references inform follow-up.*
+
+The following primary sources inform proposed checks. Their text, code, figures, and data are not included in this documentation update.
+
+- [Li, Hsu, Wang and Kedron (2024), GeoAI Reproducibility and Replicability](https://arxiv.org/abs/2404.10108). Publish a per-region provenance manifest and separate reproducibility from transferability.
+- [Pohjankukka et al. (2020), Estimating the Prediction Performance of Spatial Models via Spatial k-Fold Cross Validation](https://arxiv.org/abs/2005.14263). Use geographically separated blocks only if authorised labels become available; this does not replace the official hidden-label score.
+
+**Attribution and reuse.** Please credit [Francisco Angulo de Lafuente](https://orcid.org/0009-0001-1634-7063) in academic and software reuse and do not present this work as your own. When distributing copies or substantial portions of the original MIT software, preserve the copyright and permission notice. Upstream material keeps its own terms. [License](LICENSE) · [Figure provenance](docs/science-figures/PROVENANCE.md).
+
+<!-- research-provenance: project=overture-coverage-gap-equity; date=2026-11-04; author=Francisco Angulo de Lafuente; orcid=https://orcid.org/0009-0001-1634-7063; original-software-license=MIT -->

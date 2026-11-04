@@ -1,0 +1,209 @@
+{
+  "title": "Mapping coverage equity",
+  "sub": "Tract-level audit of Overture coverage",
+  "issue": "Zindi Bias Bounty · original methodology",
+  "sections": [
+    [
+      "Official upload status",
+      "Submission provenance",
+      [
+        "Historical rejection",
+        "Reconcile IDs",
+        "Scored entry",
+        "Private ranking"
+      ],
+      [
+        "28 October",
+        "Exact sample contract",
+        "Later E001 prior",
+        "No verified result here"
+      ]
+    ],
+    [
+      "Three isolated candidates",
+      "Three controlled hypotheses",
+      [
+        "E001 control",
+        "E003",
+        "E004",
+        "E005"
+      ],
+      [
+        "Freeze baseline",
+        "Higher building prior",
+        "Road leakage change",
+        "Zero building prior"
+      ]
+    ],
+    [
+      "Highlights",
+      "Coverage and provenance",
+      [
+        "Roads",
+        "Buildings",
+        "Facilities",
+        "Strata"
+      ],
+      [
+        "Mapped hierarchy",
+        "Compare source mix",
+        "Presence in the map",
+        "Group by tract"
+      ]
+    ],
+    [
+      "Method",
+      "Build the permitted feature spine",
+      [
+        "Overture layers",
+        "ACS and strata",
+        "Defined terms",
+        "Composite"
+      ],
+      [
+        "Count and clip",
+        "Join on text GEOID",
+        "Exclude undefined",
+        "Mean over defined"
+      ]
+    ],
+    [
+      "2.1 Features",
+      "Aggregate on a common tract geometry",
+      [
+        "Clip lines",
+        "Assign points",
+        "Aggregate",
+        "Join strata"
+      ],
+      [
+        "EPSG:5070 lengths",
+        "Keep text GEOID",
+        "Count by source tag",
+        "Use authorised layers"
+      ]
+    ],
+    [
+      "2.2 Score model",
+      "Defined components contribute",
+      [
+        "Roads",
+        "Buildings",
+        "Places",
+        "Composite"
+      ],
+      [
+        "Approximate denominator",
+        "Use source mix",
+        "Distinguish facilities",
+        "Mean of defined terms"
+      ]
+    ],
+    [
+      "2.3 Validation",
+      "Test one change against a frozen control",
+      [
+        "State hypothesis",
+        "Freeze control",
+        "Validate IDs",
+        "Read official score"
+      ],
+      [
+        "Avoid subset probing",
+        "Record the hash",
+        "Exact template match",
+        "Hidden labels"
+      ]
+    ],
+    [
+      "Results",
+      "Separate result types",
+      [
+        "Local determinism",
+        "Official RMSE",
+        "Bias analysis"
+      ],
+      [
+        "Hash the output",
+        "Score against hidden labels",
+        "Describe source patterns"
+      ]
+    ],
+    [
+      "Bias discovery",
+      "Separate coverage from provenance",
+      [
+        "Source tags",
+        "Geographic strata",
+        "Compare shares",
+        "Interpret carefully"
+      ],
+      [
+        "OSM, ML and other",
+        "Tribal and rural groups",
+        "Descriptive comparison",
+        "No proof of absence"
+      ]
+    ],
+    [
+      "Reproduce",
+      "Reproduce from permitted data",
+      [
+        "Obtain inputs",
+        "Extract features",
+        "Validate IDs",
+        "Record hashes"
+      ],
+      [
+        "Current package",
+        "Preserve provenance",
+        "Match the exact sample",
+        "Log output"
+      ]
+    ],
+    [
+      "Limitations",
+      "Bound the conclusions",
+      [
+        "Public split",
+        "Source metadata",
+        "Missing records"
+      ],
+      [
+        "Selection bias is possible",
+        "First source only",
+        "Absence on map is not physical absence"
+      ]
+    ],
+    [
+      "Credits and licence",
+      "Reuse and citation",
+      [
+        "Original code",
+        "Upstream data",
+        "Cite the work"
+      ],
+      [
+        "Preserve MIT notice",
+        "Keep separate terms",
+        "Use CITATION.cff"
+      ]
+    ],
+    [
+      "Bibliography and research directions",
+      "How the references inform follow-up",
+      [
+        "Primary sources",
+        "Study design",
+        "Evidence to report"
+      ],
+      [
+        "Resolve DOI or arXiv ID",
+        "Predefine comparisons",
+        "Separate hypotheses and results"
+      ]
+    ]
+  ],
+  "header_source": "docs/science-figures/cover-art.jpg",
+  "repository": "overture-coverage-gap-equity"
+}
