@@ -21,6 +21,10 @@
 
 ---
 
+<!-- impact-note:start -->
+<sub><strong>Efficiency and practical value.</strong> Streaming permitted mapping data into deterministic tract-level features makes coverage analysis reproducible without paid APIs or LLM calls. The <a href="#4-bias-discovery-provenance-inequality-in-overture-buildings">provenance analysis</a> adds information that building counts alone miss: whether mapped structures carry useful names, addresses and types. This can help prioritise mapping review and emergency-planning data improvements; missing map records do not establish absent physical services or measured response-time benefits.</sub>
+<!-- impact-note:end -->
+
 ## Official upload status — 28 October
 
 ![Submission provenance. Historical rejection: 28 October; Reconcile IDs: Exact sample contract; Scored entry: Later E001 prior; Private ranking: No verified result here](docs/figures/fig-01.gif)
